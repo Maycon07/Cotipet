@@ -1,0 +1,138 @@
+/* Reseta o padding, margin e box-sizing para todos os elementos, e define a fonte padrão */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif; /* Define a fonte padrão para todos os elementos */
+}
+
+/* Define a altura e largura do body para preencher a tela inteira */
+body {
+    height: 100vh; /* Altura igual à altura da viewport */
+    width: 100%; /* Largura igual à largura da viewport */
+}
+
+/* Estilo para o contêiner principal */
+.container {
+    position: relative; /* Necessário para o posicionamento absoluto do :after */
+    width: 100%;
+    height: 100%;
+    display: flex; /* Utiliza Flexbox para centralizar o conteúdo */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    padding: 20px 100px; /* Adiciona espaçamento interno */
+}
+
+/* Adiciona um fundo borrado ao contêiner com uma imagem */
+.container:after {
+    content: ''; /* Adiciona um pseudo-elemento vazio */
+    position: absolute; /* Posiciona o elemento em relação ao contêiner */
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: url("bg.jpg") no-repeat center; /* Define a imagem de fundo */
+    background-size: cover; /* Cobre todo o contêiner com a imagem */
+    filter: blur(50px); /* Aplica um desfoque de 50px à imagem */
+    z-index: -1; /* Coloca o pseudo-elemento atrás do conteúdo */
+}
+
+/* Estilo do box de contato */
+.contact-box {
+    max-width: 850px; /* Define a largura máxima do box */
+    display: grid; /* Utiliza Grid Layout */
+    grid-template-columns: repeat(2, 1fr); /* Cria duas colunas de tamanho igual */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Alinha verticalmente */
+    text-align: center; /* Centraliza o texto dentro do box */
+    background-color: #fff; /* Fundo branco para o box */
+    box-shadow: 0px 0px 19px 5px rgba(0,0,0,0.19); /* Adiciona uma sombra ao box */
+}
+
+/* Estilo para a coluna da esquerda */
+.left {
+    background: url("bg.jpg") no-repeat center; /* Imagem de fundo para a coluna da esquerda */
+    background-size: cover; /* Cobre toda a coluna com a imagem */
+    height: 100%; /* Altura total do box */
+}
+
+/* Estilo para a coluna da direita */
+.right {
+    padding: 25px 40px; /* Adiciona espaçamento interno */
+}
+
+/* Estilo para o cabeçalho h2 */
+h2 {
+    position: relative; /* Necessário para o posicionamento absoluto do :after */
+    padding: 0 0 10px; /* Adiciona padding na parte inferior */
+    margin-bottom: 10px; /* Adiciona margem inferior */
+}
+
+/* Adiciona uma linha abaixo do h2 */
+h2:after {
+    content: ''; /* Adiciona um pseudo-elemento vazio */
+    position: absolute; /* Posiciona o elemento em relação ao h2 */
+    left: 50%; /* Alinha horizontalmente ao meio */
+    bottom: 0; /* Alinha ao fundo do h2 */
+    transform: translateX(-50%); /* Centraliza horizontalmente */
+    height: 4px; /* Define a altura da linha */
+    width: 50px; /* Define a largura da linha */
+    border-radius: 2px; /* Arredonda os cantos da linha */
+    background-color: #fff; /* Define a cor da linha */
+}
+
+/* Estilo dos campos de input e textarea */
+.field {
+    width: 100%; /* Largura total do campo */
+    border: 2px solid rgba(0, 0, 0, 0); /* Borda transparente */
+    outline: none; /* Remove o contorno padrão dos campos */
+    background-color: rgba(230, 230, 230, 0.6); /* Fundo levemente cinza e translúcido */
+    padding: 0.5rem 1rem; /* Adiciona espaçamento interno */
+    font-size: 1.1rem; /* Define o tamanho da fonte */
+    margin-bottom: 22px; /* Adiciona margem inferior */
+    transition: .3s; /* Adiciona uma transição suave para alterações */
+}
+
+/* Estilo para o estado hover dos campos */
+.field:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Muda a cor de fundo ao passar o mouse */
+}
+
+/* Estilo para o textarea */
+textarea {
+    min-height: 150px; /* Define a altura mínima do textarea */
+}
+
+/* Estilo para o botão */
+.btn {
+    width: 100%; /* Largura total do botão */
+    padding: 0.5rem 1rem; /* Adiciona espaçamento interno */
+    background-color: rgba(204, 200, 200, 0.6); /* Fundo levemente cinza e translúcido */
+    color: rgb(0, 0, 0); /* Cor do texto */
+    font-size: 1.1rem; /* Tamanho da fonte */
+    border: none; /* Remove a borda padrão */
+    outline: none; /* Remove o contorno padrão */
+    cursor: pointer; /* Muda o cursor para uma mão ao passar o mouse */
+    transition: .3s; /* Adiciona uma transição suave para alterações */
+}
+
+/* Estilo para o estado hover do botão */
+.btn:hover {
+    background-color: #27ae60; /* Muda a cor de fundo ao passar o mouse */
+}
+
+/* Estilo para o estado focus dos campos */
+.field:focus {
+    border: 2px solid rgba(30,85,250,0.47); /* Muda a borda ao focar no campo */
+    background-color: #fff; /* Muda o fundo para branco ao focar */
+}
+
+/* Media query para telas com largura máxima de 880px */
+@media screen and (max-width: 880px) {
+    .contact-box {
+        grid-template-columns: 1fr; /* Muda para uma coluna em telas menores */
+    }
+    .left {
+        height: 200px; /* Define uma altura fixa para a coluna da esquerda em telas menores */
+    }
+}

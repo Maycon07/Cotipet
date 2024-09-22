@@ -1,0 +1,475 @@
+/*============ Google fonts ============*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* Importa a fonte "Poppins" do Google Fonts com diferentes pesos e estilos. */
+
+/*======= CSS variables =======*/
+:root{
+  --white-color: #fff; /* Cor branca para usar em várias partes do CSS. */
+  --dark-color: #222; /* Cor escura para usar em várias partes do CSS. */
+  --body-bg-color: #fff; /* Cor de fundo padrão para o corpo. */
+  --section-bg-color: #202834; /* Cor de fundo para seções. */
+  --navigation-item-hover-color: #3b5378; /* Cor de destaque para itens de navegação ao passar o mouse. */
+
+  --text-shadow: 0 5px 25px rgba(0, 0, 0, 0.1); /* Sombra de texto leve para dar profundidade. */
+  --box-shadow: 0 5px 25px rgb(0 0 0 / 20%); /* Sombra de caixa para efeitos de profundidade. */
+
+  --scroll-bar-color: #fff; /* Cor da barra de rolagem. */
+  --scroll-thumb-color: #282f4e; /* Cor da parte móvel da barra de rolagem. */
+  --scroll-thumb-hover-color: #454f6b; /* Cor da parte móvel da barra de rolagem ao passar o mouse. */
+}
+
+/*======= Scroll bar =======*/
+::-webkit-scrollbar{
+  width: 11px; /* Largura da barra de rolagem. */
+  background: var(--scroll-bar-color); /* Cor de fundo da barra de rolagem. */
+}
+
+::-webkit-scrollbar-thumb{
+  width: 100%; /* Largura da parte móvel da barra de rolagem. */
+  background: var(--scroll-thumb-color); /* Cor da parte móvel da barra de rolagem. */
+  border-radius: 2em; /* Cantos arredondados da parte móvel da barra de rolagem. */
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background: var(--scroll-thumb-hover-color); /* Cor da parte móvel da barra de rolagem ao passar o mouse. */
+}
+
+/*======= Main CSS =======*/
+*{
+  margin: 0; /* Remove a margem padrão de todos os elementos. */
+  padding: 0; /* Remove o padding padrão de todos os elementos. */
+  box-sizing: border-box; /* Inclui padding e bordas no cálculo da largura e altura dos elementos. */
+  font-family: 'Poppins', sans-serif; /* Define a fonte padrão para todos os elementos. */
+}
+
+body{
+  background: var(--body-bg-color); /* Define a cor de fundo do corpo. */
+}
+
+section{
+  position: relative; /* Permite o posicionamento absoluto dos elementos filhos dentro da seção. */
+}
+
+a {
+  text-decoration: none; /* Remove o sublinhado dos links. */
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; /* Define a fonte dos links. */
+  cursor: url('imagens/cachorromouse.jpg'), auto; /* Define o cursor personalizado ao passar sobre links. */
+}
+
+.read-btn:hover {
+  cursor: url('https://cdn.pixabay.com/photo/2016/11/23/16/37/dog-1850697_960_720.jpg'), auto; /* Define o cursor personalizado ao passar sobre botões com a classe `read-btn`. */
+}
+
+.section{
+  color: var(--white-color); /* Define a cor do texto para a seção. */
+  background: var(--section-bg-color); /* Define a cor de fundo para a seção. */
+  padding: 35px 200px; /* Adiciona padding de 35px nas laterais e 200px no topo e na base. */
+  transition: 0.3s ease; /* Define a transição suave para propriedades alteradas. */
+}
+
+/*======= Header =======*/
+header{
+  z-index: 999; /* Define a ordem de empilhamento do cabeçalho. */
+  position: fixed; /* Fixa o cabeçalho na parte superior da tela. */
+  width: 100%; /* Define a largura do cabeçalho para 100% da largura da tela. */
+  height: calc(5rem + 1rem); /* Define a altura do cabeçalho, ajustável com base na altura do rem. */
+  top: 0; /* Posiciona o cabeçalho no topo da tela. */
+  left: 0; /* Posiciona o cabeçalho à esquerda da tela. */
+  display: flex; /* Usa flexbox para layout no cabeçalho. */
+  justify-content: center; /* Centraliza o conteúdo horizontalmente. */
+  transition: 0.5s ease; /* Define a transição suave para alterações de altura e cor de fundo. */
+  transition-property: height, background; /* Especifica que apenas altura e fundo devem ser animados. */
+}
+
+header.sticky{
+  height: calc(2.5rem + 1rem); /* Reduz a altura do cabeçalho quando ele está fixo. */
+  background: rgba(255, 255, 255, 0.1); /* Define o fundo do cabeçalho com opacidade. */
+  backdrop-filter: blur(20px); /* Adiciona um efeito de desfoque ao fundo do cabeçalho. */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Adiciona uma borda inferior sutil ao cabeçalho. */
+}
+
+header .nav-bar{
+  position: relative; /* Permite o posicionamento absoluto dos elementos filhos dentro da barra de navegação. */
+  width: 100%; /* Define a largura da barra de navegação para 100% da tela. */
+  display: flex; /* Usa flexbox para layout na barra de navegação. */
+  align-items: center; /* Alinha os itens no centro verticalmente. */
+  justify-content: space-between; /* Distribui espaço uniformemente entre os itens. */
+  padding: 0 200px; /* Adiciona padding de 200px nas laterais da barra de navegação. */
+  transition: 0.3s ease; /* Define a transição suave para alterações na barra de navegação. */
+}
+
+.nav-close-btn, .nav-menu-btn{
+  display: none; /* Oculta os botões de fechar e menu. */
+}
+
+.nav-bar .logo{
+  color: var(--white-color); /* Define a cor do texto do logo. */
+  font-size: 1.8em; /* Define o tamanho da fonte do logo. */
+  font-weight: 600; /* Define o peso da fonte do logo. */
+  letter-spacing: 2px; /* Define o espaçamento entre letras no logo. */
+  text-transform: uppercase; /* Converte o texto do logo para maiúsculas. */
+  text-decoration: none; /* Remove o sublinhado do logo. */
+  text-shadow: var(--text-shadow); /* Adiciona sombra ao texto do logo. */
+}
+
+.navigation .nav-items a{
+  color: var(--white-color); /* Define a cor dos links de navegação. */
+  font-size: 1em; /* Define o tamanho da fonte dos links de navegação. */
+  text-decoration: none; /* Remove o sublinhado dos links de navegação. */
+  text-shadow: var(--text-shadow); /* Adiciona sombra ao texto dos links de navegação. */
+}
+
+.navigation .nav-items a i{
+  display: none; /* Oculta os ícones dentro dos links de navegação. */
+}
+
+.navigation .nav-items a:not(:last-child){
+  margin-right: 45px; /* Adiciona margem direita aos links de navegação, exceto o último. */
+}
+
+/*======= Home =======*/
+.home{
+  min-height: 100vh; /* Define a altura mínima da seção para 100% da altura da tela. */
+}
+
+.home:before{
+  z-index: 888; /* Define a ordem de empilhamento do pseudo-elemento. */
+  content: ''; /* Define o conteúdo do pseudo-elemento como vazio. */
+  position: absolute; /* Posiciona o pseudo-elemento de forma absoluta. */
+  width: 100%; /* Define a largura do pseudo-elemento para 100% da largura da tela. */
+  height: 50px; /* Define a altura do pseudo-elemento para 50px. */
+  bottom: 0; /* Posiciona o pseudo-elemento na parte inferior da seção. */
+  left: 0; /* Posiciona o pseudo-elemento à esquerda da seção. */
+  background: linear-gradient(transparent, var(--section-bg-color)); /* Adiciona um gradiente de fundo. */
+}
+
+/*======= Background slider =======*/
+.bg-slider{
+    z-index: 777; /* Define a ordem de empilhamento do slider. */
+    position: relative; /* Permite o posicionamento absoluto dos elementos filhos dentro do slider. */
+    width: 100%; /* Define a largura do slider para 100% da tela. */
+    min-height: 100vh; /* Define a altura mínima do slider para 100% da altura da tela. */
+  }
+  
+  .bg-slider .swiper-slide{
+    position: relative; /* Permite o posicionamento absoluto dos elementos filhos dentro do slide. */
+    width: 100%; /* Define a largura do slide para 100% da largura do slider. */
+    height: 100vh; /* Define a altura do slide para 100% da altura da tela. */
+  }
+  
+  .bg-slider .swiper-slide img{
+    width: 100%; /* Define a largura da imagem para 100% da largura do slide. */
+    height: 100vh; /* Define a altura da imagem para 100% da altura da tela. */
+    object-fit: cover; /* Faz com que a imagem cubra toda a área do slide, mantendo a proporção. */
+    background-position: center; /* Centraliza a imagem. */
+    background-size: cover; /* Faz com que a imagem cubra toda a área disponível. */
+    pointer-events: none; /* Desativa a interação com a imagem (clicável, etc.). */
+  }
+  
+  .swiper-slide .text-content{
+    position: absolute; /* Posiciona o conteúdo de texto de forma absoluta dentro do slide. */
+    top: 25%; /* Posiciona o conteúdo de texto 25% a partir do topo do slide. */
+    color: var(--white-color); /* Define a cor do texto. */
+    margin: 0 200px; /* Define a margem lateral do conteúdo de texto. */
+    transition: 0.3s ease; /* Define a transição suave para mudanças no conteúdo de texto. */
+  }
+  
+  .swiper-slide .text-content .title{
+    font-size: 4em; /* Define o tamanho da fonte do título. */
+    font-weight: 700; /* Define o peso da fonte do título. */
+    text-shadow: var(--text-shadow); /* Adiciona sombra ao texto do título. */
+    margin-bottom: 20px; /* Adiciona uma margem inferior ao título. */
+    transform: translateY(-50px); /* Move o título 50px para cima inicialmente. */
+    opacity: 0; /* Inicialmente oculta o título. */
+  }
+  
+  .swiper-slide-active .text-content .title{
+    transform: translateY(0); /* Move o título para a posição original. */
+    opacity: 1; /* Torna o título visível. */
+    transition: 1s ease; /* Define uma transição suave para a aparição do título. */
+    transition-delay: 0.3s; /* Adiciona um atraso de 0.3s antes da transição. */
+    transition-property: transform, opacity; /* Especifica que a transição deve afetar transformação e opacidade. */
+  }
+  
+  .swiper-slide .text-content .title span{
+    font-size: 0.3em; /* Define o tamanho da fonte do span dentro do título. */
+    font-weight: 300; /* Define o peso da fonte do span dentro do título. */
+  }
+  
+  .swiper-slide .text-content p{
+    max-width: 700px; /* Define a largura máxima do parágrafo. */
+    background: rgba(255, 255, 255, 0.1); /* Define um fundo semitransparente para o parágrafo. */
+    backdrop-filter: blur(10px); /* Adiciona um efeito de desfoque ao fundo do parágrafo. */
+    text-shadow: var(--text-shadow); /* Adiciona sombra ao texto do parágrafo. */
+    padding: 20px; /* Adiciona padding ao redor do texto do parágrafo. */
+    border-radius: 10px; /* Define cantos arredondados para o parágrafo. */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Adiciona uma borda inferior sutil ao parágrafo. */
+    border-right: 1px solid rgba(255, 255, 255, 0.1); /* Adiciona uma borda direita sutil ao parágrafo. */
+    box-shadow: var(--box-shadow); /* Adiciona uma sombra de caixa ao parágrafo. */
+    transform: translateX(-80px); /* Move o parágrafo 80px para a esquerda inicialmente. */
+    opacity: 0; /* Inicialmente oculta o parágrafo. */
+  }
+  
+  .swiper-slide-active .text-content p{
+    transform: translateX(0); /* Move o parágrafo para a posição original. */
+    opacity: 1; /* Torna o parágrafo visível. */
+    transition: 1s ease; /* Define uma transição suave para a aparição do parágrafo. */
+    transition-delay: 0.3s; /* Adiciona um atraso de 0.3s antes da transição. */
+    transition-property: transform, opacity; /* Especifica que a transição deve afetar transformação e opacidade. */
+  }
+  
+  .swiper-slide .text-content .read-btn{
+    border: none; /* Remove a borda do botão. */
+    outline: none; /* Remove o contorno do botão ao focar. */
+    background: var(--white-color); /* Define a cor de fundo do botão. */
+    color: var(--dark-color); /* Define a cor do texto do botão. */
+    font-size: 1em; /* Define o tamanho da fonte do botão. */
+    font-weight: 500; /* Define o peso da fonte do botão. */
+    padding: 8px 25px; /* Adiciona padding ao redor do texto do botão. */
+    display: flex; /* Usa flexbox para layout dentro do botão. */
+    align-items: center; /* Alinha os itens verticalmente no centro. */
+    margin-top: 40px; /* Adiciona uma margem superior ao botão. */
+    border-radius: 10px; /* Define cantos arredondados para o botão. */
+    cursor: pointer; /* Define o cursor como ponteiro quando sobre o botão. */
+    transform: translateX(50px); /* Move o botão 50px para a direita inicialmente. */
+    opacity: 0; /* Inicialmente oculta o botão. */
+  }
+  
+  .swiper-slide-active .text-content .read-btn{
+    transform: translateX(0); /* Move o botão para a posição original. */
+    opacity: 1; /* Torna o botão visível. */
+    transition: 1s ease; /* Define uma transição suave para a aparição do botão. */
+    transition-delay: 0.3s; /* Adiciona um atraso de 0.3s antes da transição. */
+    transition-property: transform, opacity; /* Especifica que a transição deve afetar transformação e opacidade. */
+  }
+  
+  .swiper-slide .text-content .read-btn i{
+    font-size: 1.6em; /* Define o tamanho da fonte do ícone dentro do botão. */
+    transition: 0.3s ease; /* Define uma transição suave para mudanças no ícone. */
+  }
+  
+  .swiper-slide .text-content .read-btn:hover i{
+    transform: translateX(5px); /* Move o ícone 5px para a direita ao passar o mouse sobre o botão. */
+    cursor: url('cachorromouse.jpg'), pointer; /* Define o cursor personalizado ao passar sobre o botão com ícone. */
+  }
+  
+  .dark-layer:before{
+    content: ''; /* Define o conteúdo do pseudo-elemento como vazio. */
+    position: absolute; /* Posiciona o pseudo-elemento de forma absoluta. */
+    width: 100%; /* Define a largura do pseudo-elemento para 100% da largura do slider. */
+    height: 100vh; /* Define a altura do pseudo-elemento para 100% da altura da tela. */
+    top: 0; /* Posiciona o pseudo-elemento no topo do slider. */
+    left: 0; /* Posiciona o pseudo-elemento à esquerda do slider. */
+    background: rgba(0, 0, 0, 0.1); /* Define um fundo semitransparente preto. */
+  }
+  
+  .bg-slider-thumbs{
+    z-index: 777; /* Define a ordem de empilhamento dos controles de miniaturas. */
+    position: absolute; /* Posiciona os controles de miniaturas de forma absoluta. */
+    bottom: 7em; /* Posiciona os controles de miniaturas a 7em do fundo. */
+    left: 50%; /* Centraliza horizontalmente os controles de miniaturas. */
+    transform: translateX(-50%); /* Ajusta a posição horizontal para centralizar. */
+    transition: 0.3s ease; /* Define uma transição suave para mudanças nos controles de miniaturas. */
+  }
+  
+  .thumbs-container{
+    background: rgba(255, 255, 255, 0.1); /* Define um fundo semitransparente para o contêiner das miniaturas. */
+    backdrop-filter: blur(10px); /* Adiciona um efeito de desfoque ao fundo do contêiner das miniaturas. */
+    padding: 10px 3px; /* Adiciona padding ao redor das miniaturas. */
+    border-radius: 10px; /* Define cantos arredondados para o contêiner das miniaturas. */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Adiciona uma borda inferior sutil ao contêiner. */
+    border-right: 1px solid rgba(255, 255, 255, 0.1); /* Adiciona uma borda direita sutil ao contêiner. */
+    box-shadow: var(--box-shadow); /* Adiciona uma sombra de caixa ao contêiner das miniaturas. */
+  }
+  
+  .thumbs-container img{
+    width: 50px; /* Define a largura das miniaturas. */
+    height: 35px; /* Define a altura das miniaturas. */
+    margin: 0 5px; /* Define a margem lateral entre as miniaturas. */
+    border-radius: 5px; /* Define cantos arredondados para as miniaturas. */
+    cursor: pointer; /* Define o cursor como ponteiro ao passar sobre as miniaturas. */
+  }
+  
+  .swiper-slide-thumb-active{
+    border: 1px solid var(--white-color); /* Adiciona uma borda ao redor da miniatura ativa. */
+  }
+  
+  /*======= Media icons =======*/
+  .media-icons{
+    z-index: 999; /* Define a ordem de empilhamento dos ícones de mídia. */
+    position: absolute; /* Posiciona os ícones de mídia de forma absoluta. */
+    display: flex; /* Usa flexbox para layout vertical dos ícones. */
+    flex-direction: column; /* Alinha os ícones verticalmente. */
+    top: 50%; /* Posiciona os ícones a 50% do topo da tela. */
+    transform: translateY(-50%); /* Ajusta a posição vertical para centralizar. */
+    margin-left: 90px; /* Adiciona uma margem esquerda para os ícones. */
+  }
+  
+  .media-icons a{
+    color: var(--white-color); /* Define a cor dos ícones de mídia. */
+    font-size: 1.7em; /* Define o tamanho da fonte dos ícones. */
+    margin: 10px 0; /* Define a margem vertical entre os ícones. */
+  }
+  
+  /*======= About section =======*/
+  .about h2{
+    font-size: 3em; /* Define o tamanho da fonte do título na seção sobre. */
+    font-weight: 600; /* Define o peso da fonte do título. */
+  }
+  
+  .about p{
+    margin: 25px 0; /* Define a margem vertical para os parágrafos na seção sobre. */
+  }
+  
+  /*======= Media queries (max-width: 1100px) =======*/
+  @media screen and (max-width: 1100px){
+    header .nav-bar{
+      padding: 0 50px; /* Ajusta o padding da barra de navegação. */
+    }
+  
+    .section{
+      padding: 25px 50px; /* Ajusta o padding das seções. */
+    }
+  
+    .media-icons{
+      right: 0; /* Alinha os ícones de mídia à direita. */
+      margin-right: 50px; /* Define a margem direita dos ícones. */
+    }
+  
+    .swiper-slide .text-content{
+      margin: 0 120px 0 50px; /* Ajusta a margem do conteúdo de texto no slide. */
+    }
+  
+    .bg-slider-thumbs{
+      bottom: 3em; /* Ajusta a posição dos controles de miniaturas. */
+    }
+  }
+  
+  /*======= Media queries (max-width: 785px) =======*/
+  @media screen and (max-width: 785px){
+    header .nav-bar{
+      padding: 25px 20px; /* Ajusta o padding da barra de navegação para dispositivos menores. */
+    }
+  
+    .section{
+      padding: 25px 20px; /* Ajusta o padding das seções para dispositivos menores. */
+    }
+  
+    .media-icons{
+      margin-right: 20px; /* Ajusta a margem direita dos ícones de mídia. */
+    }
+  
+    .media-icons a{
+      font-size: 1.5em; /* Ajusta o tamanho da fonte dos ícones de mídia. */
+    }
+  
+    .swiper-slide .text-content{
+      margin: 0 70px 0 20px; /* Ajusta a margem do conteúdo de texto no slide. */
+    }
+  
+    .swiper-slide .text-content .title{
+      font-size: 3em; /* Ajusta o tamanho da fonte do título no slide. */
+    }
+  
+    .swiper-slide .text-content .title span{
+      font-size: 0.35em; /* Ajusta o tamanho da fonte do span dentro do título. */
+    }
+  
+    .swiper-slide .text-content p{
+      font-size: 0.9em; /* Ajusta o tamanho da fonte dos parágrafos. */
+    }
+  
+    /*======= Navigation menu =======*/
+    .nav-menu-btn{
+      display: block; /* Exibe o botão do menu de navegação para dispositivos menores. */
+      color: var(--white-color); /* Define a cor do botão. */
+      font-size: 1.5em; /* Define o tamanho da fonte do botão. */
+      cursor: pointer; /* Define o cursor como ponteiro ao passar sobre o botão. */
+    }
+  
+    .nav-close-btn{
+      display: block; /* Exibe o botão de fechar navegação para dispositivos menores. */
+      color: var(--dark-color); /* Define a cor do botão. */
+      position: absolute; /* Posiciona o botão de fechar de forma absoluta. */
+      top: 0; /* Posiciona o botão no topo. */
+      right: 0; /* Posiciona o botão à direita. */
+      font-size: 1.3em; /* Define o tamanho da fonte do botão. */
+      margin: 10px; /* Define a margem ao redor do botão. */
+      cursor: pointer; /* Define o cursor como ponteiro ao passar sobre o botão. */
+      transition: 0.3s ease; /* Define uma transição suave para o botão. */
+    }
+  
+    .navigation{
+      z-index: 99999; /* Define a ordem de empilhamento do menu de navegação. */
+      position: fixed; /* Posiciona o menu de navegação de forma fixa. */
+      width: 100%; /* Define a largura do menu para 100% da tela. */
+      height: 100vh; /* Define a altura do menu para 100% da altura da tela. */
+      top: 0; /* Posiciona o menu no topo da tela. */
+      left: 0; /* Posiciona o menu à esquerda da tela. */
+      background: rgba(0, 0, 0, 0.25); /* Define um fundo semitransparente preto para o menu. */
+      display: flex; /* Usa flexbox para centralizar o menu. */
+      justify-content: center; /* Alinha o menu horizontalmente no centro. */
+      align-items: center; /* Alinha o menu verticalmente no centro. */
+      visibility: hidden; /* Inicialmente oculta o menu. */
+      opacity: 0; /* Inicialmente torna o menu invisível. */
+      transition: 0.3s ease; /* Define uma transição suave para o menu. */
+    }
+  
+    .navigation.active{
+      visibility: visible; /* Torna o menu visível quando ativo. */
+      opacity: 1; /* Torna o menu opaco quando ativo. */
+    }
+  
+    .navigation .nav-items{
+      position: relative; /* Permite o posicionamento absoluto dos itens de navegação. */
+      background: var(--white-color); /* Define a cor de fundo dos itens de navegação. */
+      width: 400px; /* Define a largura dos itens de navegação. */
+      max-width: 400px; /* Define a largura máxima dos itens de navegação. */
+      display: grid; /* Usa grid layout para os itens de navegação. */
+      place-content: center; /* Centraliza o conteúdo dos itens de navegação. */
+      margin: 20px; /* Adiciona uma margem ao redor dos itens de navegação. */
+      padding: 40px; /* Adiciona padding ao redor do conteúdo dos itens de navegação. */
+      border-radius: 20px; /* Define cantos arredondados para os itens de navegação. */
+      box-shadow: var(--box-shadow); /* Adiciona uma sombra de caixa aos itens de navegação. */
+      transform: translateY(-200px); /* Move os itens de navegação 200px para cima inicialmente. */
+      transition: 0.3s ease; /* Define uma transição suave para os itens de navegação. */
+    }
+  
+    .navigation.active .nav-items{
+      transform: translateY(0); /* Move os itens de navegação para a posição original quando ativo. */
+    }
+  
+    .navigation .nav-items a{
+      color: var(--dark-color); /* Define a cor dos links no menu de navegação. */
+      font-size: 1em; /* Define o tamanho da fonte dos links no menu de navegação. */
+      margin: 15px 50px; /* Define a margem ao redor dos links no menu de navegação. */
+      transition: 0.3s ease; /* Define uma transição suave para os links. */
+    }
+  
+    .navigation .nav-items a:hover{
+      color: var(--navigation-item-hover-color); /* Altera a cor dos links ao passar o mouse sobre eles. */
+    }
+  
+    .navigation .nav-items > a > i{
+      display: inline-block; /* Exibe ícones dentro dos links de navegação. */
+      font-size: 1.3em; /* Define o tamanho da fonte dos ícones. */
+      margin-right: 5px; /* Define a margem direita dos ícones. */
+    }
+  
+    .swiper-slide .text-content .read-btn{
+      font-size: 0.9em; /* Ajusta o tamanho da fonte do botão de leitura. */
+      padding: 5px 15px; /* Ajusta o padding do botão de leitura. */
+    }
+  
+    /*======= About section =======*/
+    .about h2{
+      font-size: 2.5em; /* Ajusta o tamanho da fonte do título na seção sobre para dispositivos menores. */
+    }
+  
+    .about p{
+      font-size: 0.9em; /* Ajusta o tamanho da fonte dos parágrafos na seção sobre para dispositivos menores. */
+    }
+  }
+  
+  
+  

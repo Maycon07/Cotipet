@@ -1,0 +1,165 @@
+/* Estilo global */
+* {
+    margin: 0; /* Remove a margem padrão de todos os elementos */
+    padding: 0; /* Remove o preenchimento (padding) padrão de todos os elementos */
+    box-sizing: border-box; /* Garante que o padding e a borda sejam incluídos nas dimensões totais dos elementos */
+    font-family: 'Arial', sans-serif; /* Define a fonte Arial como padrão para todo o documento */
+}
+
+body {
+    background-color: #f4f4f9; /* Define a cor de fundo da página */
+    color: #333; /* Define a cor do texto como um cinza escuro */
+    line-height: 1.6; /* Define o espaçamento entre as linhas do texto */
+    padding: 20px; /* Adiciona preenchimento ao redor do conteúdo da página */
+}
+
+/* Estilo da navegação */
+nav {
+    background-color: #0077b6; /* Define a cor de fundo do menu de navegação */
+    padding: 15px; /* Adiciona preenchimento ao redor do conteúdo dentro da navegação */
+    margin-bottom: 20px; /* Adiciona uma margem inferior para separar a navegação do conteúdo abaixo */
+}
+
+nav ul {
+    display: flex; /* Alinha os itens do menu de navegação em uma linha */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    list-style: none; /* Remove os marcadores de lista padrão */
+}
+
+nav ul li {
+    margin: 0 15px; /* Adiciona espaço entre os itens da lista */
+}
+
+nav ul li a {
+    color: white; /* Define a cor do texto dos links como branco */
+    text-decoration: none; /* Remove o sublinhado padrão dos links */
+    font-size: 18px; /* Define o tamanho da fonte dos links */
+}
+
+nav ul li a:hover {
+    text-decoration: underline; /* Adiciona um sublinhado ao link quando o mouse passa sobre ele */
+}
+
+/* Estilo do título principal */
+h1 {
+    text-align: center; /* Centraliza o título principal na página */
+    color: #0077b6; /* Define a cor do título como azul */
+    margin-bottom: 20px; /* Adiciona espaço abaixo do título */
+}
+
+/* Estilo dos parágrafos */
+p {
+    text-align: center; /* Centraliza os parágrafos na página */
+    font-size: 18px; /* Define o tamanho da fonte dos parágrafos */
+    margin-bottom: 20px; /* Adiciona espaço abaixo de cada parágrafo */
+}
+
+/* Estilo dos links de ação */
+.botao {
+    display: inline-block; /* Permite que o botão se comporte como um bloco, mas se alinha em linha */
+    padding: 10px 20px; /* Adiciona preenchimento interno ao botão */
+    background-color: #0077b6; /* Define a cor de fundo do botão */
+    color: white; /* Define a cor do texto do botão como branco */
+    text-decoration: none; /* Remove o sublinhado do botão */
+    border-radius: 5px; /* Arredonda os cantos do botão */
+    font-size: 18px; /* Define o tamanho da fonte do botão */
+    transition: background-color 0.3s ease; /* Adiciona uma transição suave na mudança de cor de fundo */
+}
+
+.botao:hover {
+    background-color: #005f8a; /* Muda a cor de fundo quando o mouse passa sobre o botão */
+}
+
+/* Estilo dos formulários */
+form {
+    max-width: 600px; /* Define uma largura máxima para o formulário */
+    margin: 0 auto 30px; /* Centraliza o formulário e adiciona uma margem inferior */
+    padding: 20px; /* Adiciona preenchimento interno ao formulário */
+    background-color: white; /* Define a cor de fundo como branco */
+    border-radius: 8px; /* Arredonda os cantos do formulário */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra sutil ao redor do formulário */
+}
+
+form label {
+    display: block; /* Faz com que os rótulos ocupem toda a largura disponível */
+    font-size: 16px; /* Define o tamanho da fonte dos rótulos */
+    margin-bottom: 5px; /* Adiciona espaço abaixo de cada rótulo */
+    color: #333; /* Define a cor do texto dos rótulos */
+}
+
+form input, form textarea {
+    width: 100%; /* Faz os campos de entrada e área de texto ocuparem toda a largura disponível */
+    padding: 10px; /* Adiciona preenchimento interno aos campos */
+    margin-bottom: 15px; /* Adiciona espaço abaixo de cada campo */
+    border: 1px solid #ccc; /* Define uma borda cinza claro ao redor dos campos */
+    border-radius: 5px; /* Arredonda os cantos dos campos */
+}
+
+form button {
+    background-color: #0077b6; /* Define a cor de fundo do botão de envio */
+    color: white; /* Define a cor do texto do botão de envio como branco */
+    padding: 10px 20px; /* Adiciona preenchimento interno ao botão */
+    border: none; /* Remove a borda padrão do botão */
+    border-radius: 5px; /* Arredonda os cantos do botão */
+    cursor: pointer; /* Altera o cursor para um ponteiro ao passar sobre o botão */
+    font-size: 16px; /* Define o tamanho da fonte do botão */
+    transition: background-color 0.3s ease; /* Adiciona uma transição suave na mudança de cor de fundo */
+}
+
+form button:hover {
+    background-color: #005f8a; /* Muda a cor de fundo quando o mouse passa sobre o botão de envio */
+}
+
+/* Estilo da lista de pets */
+.pet-list {
+    background-color: white; /* Define a cor de fundo como branco */
+    padding: 20px; /* Adiciona preenchimento interno ao componente */
+    margin: 20px auto; /* Centraliza a lista e adiciona espaço ao redor */
+    border-radius: 8px; /* Arredonda os cantos da lista */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra sutil ao redor da lista */
+    max-width: 700px; /* Define a largura máxima da lista */
+}
+
+.pet-list img {
+    max-width: 100%; /* Faz com que as imagens ocupem toda a largura disponível */
+    height: auto; /* Ajusta a altura da imagem proporcionalmente à largura */
+    margin-top: 10px; /* Adiciona um espaço acima das imagens */
+    border-radius: 8px; /* Arredonda os cantos das imagens */
+}
+
+/* Estilo do rodapé */
+footer {
+    text-align: center; /* Centraliza o conteúdo do rodapé */
+    margin-top: 30px; /* Adiciona espaço acima do rodapé */
+    padding: 10px; /* Adiciona preenchimento interno ao rodapé */
+    background-color: #0077b6; /* Define a cor de fundo do rodapé */
+    color: white; /* Define a cor do texto do rodapé como branco */
+    position: relative; /* Define a posição relativa do rodapé */
+    bottom: 0; /* Alinha o rodapé ao final da página */
+    width: 100%; /* Faz o rodapé ocupar toda a largura da página */
+    font-size: 14px; /* Define o tamanho da fonte no rodapé */
+}
+
+hr {
+    border: 1px solid #ddd; /* Define a linha horizontal com uma borda cinza clara */
+    margin-bottom: 30px; /* Adiciona espaço abaixo da linha */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column; /* Altera a navegação para uma coluna em telas menores */
+    }
+
+    nav ul li {
+        margin-bottom: 10px; /* Adiciona espaço entre os itens da lista na navegação */
+    }
+
+    .botao {
+        font-size: 16px; /* Reduz o tamanho da fonte dos botões em telas menores */
+    }
+    
+    .pet-list {
+        margin: 10px; /* Reduz a margem ao redor da lista em telas menores */
+    }
+}
